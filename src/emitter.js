@@ -1,23 +1,21 @@
-class Emitter {
+export default class EmitterSet {
   constructor() {
     this._events = {};
   }
 
   _event(name) {
-    return (this._events[name] = this._events[name] || new Map());
+    return (this._events[name] = this._events[name] || new Set());
   }
 
   on(name, fn) {
-    this._event(name).set(fn, true);
+    this._event(name).add(fn);
   }
 
   off(name, fn) {
-    this._event(name).delete(fn);
+    fn ? this._event(name).delete(fn) : this._event(name).clear();
   }
 
   emit(name, input) {
-    for (const fn of this._event(name).keys()) fn(input);
+    this._event(name).forEach(function(fn) { fn(input); });
   }
 }
-
-export default Emitter;

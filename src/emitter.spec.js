@@ -11,7 +11,7 @@ describe('Emitter', () => {
 
     this.emitter.on('event', func);
 
-    expect(this.emitter._events.event.get(func)).to.equal(true);
+    expect(this.emitter._events.event.size).to.equal(1);
   });
 
   it('#off should unregister a callback for an event', function () {
@@ -19,6 +19,18 @@ describe('Emitter', () => {
 
     this.emitter.on('event', func);
     this.emitter.off('event', func);
+
+    expect(this.emitter._events.event.size).to.equal(0);
+  });
+
+  it('#off should unregister all callbacks for an event', function () {
+    function func() {}
+    function func2() {}
+
+    this.emitter.on('event', func);
+    this.emitter.on('event', func2);
+
+    this.emitter.off('event');
 
     expect(this.emitter._events.event.size).to.equal(0);
   });
