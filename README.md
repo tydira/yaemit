@@ -4,7 +4,9 @@ Microscopic and speedy event emitter for ES2015.
 
 ## Installation
 
+  ```shell
   npm install yaemit
+  ```
 
 ## Usage
 
@@ -23,4 +25,6 @@ Microscopic and speedy event emitter for ES2015.
 
 ## Test
 
+  ```shell
   npm test
+  ```
