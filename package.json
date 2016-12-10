@@ -1,6 +1,6 @@
 {
   "name": "yaemit",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Microscopic and speedy event emitter for ES2015.",
   "keywords": ["events", "event", "emit", "emitter", "eventemitter"],
   "homepage": "https://github.com/kroogs/yaemit",
