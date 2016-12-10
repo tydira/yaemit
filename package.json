@@ -6,8 +6,8 @@
   "homepage": "https://github.com/kroogs/yaemit",
   "author": "Justin Krueger <justin@kroo.gs>",
   "license": "MIT",
-  "main": "src/emitter.js",
-  "files": ["dist", "src"],
+  "main": "lib/yaemit.js",
+  "files": ["lib", "src"],
   "repository": {
     "type": "git",
     "url": "https://github.com/kroogs/yaemit.git"
@@ -17,8 +17,8 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --recursive --require babel-core/register src",
-    "build": "./node_modules/.bin/webpack --content-base dist",
-    "dist": "NODE_ENV=prod ./node_modules/.bin/webpack --content-base dist",
+    "build": "./node_modules/.bin/webpack",
+    "dist": "NODE_ENV=prod ./node_modules/.bin/webpack",
     "prepublish": "npm test && npm run-script dist"
   },
   "devDependencies": {
