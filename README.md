@@ -1,4 +1,8 @@
-# Yaemit [![CircleCI](https://circleci.com/gh/kroogs/yaemit.svg?style=shield)](https://circleci.com/gh/kroogs/yaemit)
+# Yaemit
+[![CircleCI](https://img.shields.io/circleci/project/github/kroogs/yaemit.svg)](https://circleci.com/gh/kroogs/yaemit)
+[![Coverage](https://img.shields.io/coveralls/kroogs/yaemit.svg)](https://coveralls.io/github/kroogs/yaemit)
+[![npm version](https://img.shields.io/npm/v/yaemit.svg)](https://www.npmjs.com/package/yaemit)
+[![MIT license](https://img.shields.io/npm/l/yaemit.svg)](https://spdx.org/licenses/MIT)
 
 Microscopic (400 bytes) and speedy event emitter in ES2015.
 
