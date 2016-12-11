@@ -32,15 +32,15 @@ Microscopic (400 bytes) and speedy event emitter in ES2015.
   class Hello extends Emitter {
     constructor() {
       super();
-
       this.on('event', this.hello);
-      this.emit('event', 'world');
     }
 
     hello(input) {
       console.log('hello', input);
     }
   }
+
+  (new Hello()).emit('event', 'world');
   ```
 
   Context binding for the callback:
@@ -48,13 +48,14 @@ Microscopic (400 bytes) and speedy event emitter in ES2015.
   emitter.on('event', callback.bind(variable));
   ```
 
-  Run and unregister a callback:
+  Run a callback once:
   ```javascript
   emitter.on('event', function() {
     console.log('called');
-
     emitter.off('event', this);
   });
+
+  emitter.emit('event');
   ```
 
 ## Test
