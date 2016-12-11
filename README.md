@@ -45,14 +45,14 @@ Microscopic (400 bytes) and speedy event emitter in ES2015.
 
   Context binding for the callback:
   ```javascript
-  emitter.on('event', callback.bind(variable));
+  emitter.on('event', callback.bind(context));
   ```
 
   Run a callback once:
   ```javascript
   emitter.on('event', function() {
-    console.log('called');
     emitter.off('event', this);
+    console.log('called');
   });
 
   emitter.emit('event');
