@@ -17,45 +17,42 @@ Microscopic (400 bytes) and speedy event emitter in ES2015.
 
   Direct usage of Emitter:
   ```javascript
-  import Emitter from 'yaemit';
+  import Emitter from 'yaemit'
 
-  const e = new Emitter();
-  function fn(input) { console.log('hello', input); }
+  const e = new Emitter()
+  function fn(input) { console.log('hello', input) }
 
-  e.on('event', fn);
-  e.emit('event', 'world');
-  e.off('event', fn);
+  e.on('event', fn)
+  e.emit('event', 'world')
+  e.off('event', fn)
   ```
 
   Emitter can be extended:
   ```javascript
   class Hello extends Emitter {
     constructor() {
-      super();
-      this.on('event', this.hello);
+      super()
+      this.on('event', this.hello)
     }
 
     hello(input) {
-      console.log('hello', input);
+      console.log('hello', input)
     }
   }
 
-  (new Hello()).emit('event', 'world');
+  (new Hello()).emit('event', 'world')
   ```
 
   Context binding for the callback:
   ```javascript
-  emitter.on('event', callback.bind(context));
+  e.on('event', callback.bind(context))
   ```
 
   Run a callback once:
   ```javascript
-  emitter.on('event', function() {
-    emitter.off('event', this);
-    console.log('called');
-  });
-
-  emitter.emit('event');
+  e.once('event', callback)
+  e.emit('event') // Ran callback
+  e.emit('event') // Didn't run anything
   ```
 
 ## Test

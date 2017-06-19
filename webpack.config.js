@@ -1,38 +1,30 @@
-const { join } = require('path');
-const { UglifyJsPlugin } = require('webpack').optimize;
-
-const libraryName = 'yaemit';
-const plugins = [];
-let extension = '.js';
-
-if (process.env.NODE_ENV === 'prod') {
-  extension = '.min.js';
-  plugins.push(new UglifyJsPlugin());
-}
+const path = require('path')
 
 module.exports = {
-  plugins,
-  entry: join(__dirname, `src/emitter.js`),
-  devtool: 'source-map',
+  context: __dirname,
+  entry: './src/emitter.js',
+
+  output: {
+    library: 'yaemit',
+    libraryTarget: 'umd',
+    path: path.resolve('dist'),
+    filename: 'yaemit.min.js',
+  },
+
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['.js'],
+    modules: [
+      path.resolve('src'),
+    ],
   },
 
   module: {
     loaders: [
       {
+        use: ['babel-loader'],
         test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-      },
+        exclude: [path.resolve('node_modules')],
+      }
     ],
   },
-
-  output: {
-    path: join(__dirname, 'lib'),
-    filename: `${libraryName}${extension}`,
-    library: libraryName,
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
-  },
-};
+}

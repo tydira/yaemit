@@ -1,4 +1,11 @@
 {
-  presets: ['es2015'],
-  "plugins": ['add-module-exports']
+  "retainLines": true,
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }],
+    "stage-0"
+  ]
 }

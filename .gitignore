@@ -1,2 +1,10 @@
-lib
+*.log
+package-lock.json
+yarn.lock
+dist
 node_modules
+
+.*
+!.git*
+!.babelrc
+!.eslintrc
