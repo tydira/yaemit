@@ -59,9 +59,3 @@ Microscopic and speedy event emitter in ES2015.
   e.emit('event') // Ran event handler
   e.emit('event') // Didn't run anything
   ```
-
-## Test
-
-  ```shell
-  npm test
-  ```
