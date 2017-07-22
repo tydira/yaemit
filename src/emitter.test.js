@@ -47,7 +47,7 @@ describe('Emitter', function() {
     expect(bucket).toEqual(['ran'])
   })
 
-  test('#emit should run all callbacks for an event with supplied argument', () => {
+  test('#emit should run all callbacks for an event with the supplied argument', () => {
     const data = []
 
     function fn(input) {
@@ -62,5 +62,11 @@ describe('Emitter', function() {
     this.emitter.emit('event', 'ran')
 
     expect(data).toEqual(['ran', 'ran'])
+  })
+
+  test('#emit should return early if the event does not exist', () => {
+    this.emitter.emit('event', 'ran')
+
+    expect(true).toBe(true)
   })
 })
