@@ -1,4 +1,6 @@
 # Yaemit
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/kroogs/yaemit.svg)](https://greenkeeper.io/)
 [![CircleCI](https://img.shields.io/circleci/project/github/kroogs/yaemit.svg)](https://circleci.com/gh/kroogs/yaemit)
 [![Coverage](https://img.shields.io/coveralls/kroogs/yaemit.svg)](https://coveralls.io/github/kroogs/yaemit)
 [![npm version](https://img.shields.io/npm/v/yaemit.svg)](https://www.npmjs.com/package/yaemit)
