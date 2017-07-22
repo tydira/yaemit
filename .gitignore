@@ -3,8 +3,11 @@ package-lock.json
 yarn.lock
 dist
 node_modules
+coverage
 
 .*
 !.git*
 !.babelrc
 !.eslintrc
+!.flowconfig
+!.tern-project
