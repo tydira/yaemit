@@ -5,7 +5,7 @@ describe('Emitter', function() {
     this.emitter = new Emitter()
   })
 
-  test('#on should register a callback to run for an event', () => {
+  test('#on should register a callback for an event', () => {
     function fn() {}
 
     this.emitter.on('event', fn)
@@ -13,7 +13,7 @@ describe('Emitter', function() {
     expect(this.emitter._events.event.size).toBe(1)
   })
 
-  test('#off should unregister a callback to run for an event', () => {
+  test('#off should unregister a callback for an event', () => {
     function fn() {}
 
     this.emitter.on('event', fn)
@@ -22,7 +22,7 @@ describe('Emitter', function() {
     expect(this.emitter._events.event.size).toBe(0)
   })
 
-  test('#off should unregister all callbacks to run for an event', () => {
+  test('#off should unregister all callbacks for an event', () => {
     function fn() {}
     function fn2() {}
 
@@ -33,7 +33,7 @@ describe('Emitter', function() {
     expect(this.emitter._events.event.size).toBe(0)
   })
 
-  test('#once should register a callback to run once for an event', () => {
+  test('#once should register a callback once for an event', () => {
     const bucket = []
     function fn() {
       bucket.push('ran')
@@ -47,7 +47,7 @@ describe('Emitter', function() {
     expect(bucket).toEqual(['ran'])
   })
 
-  test('#emit should run all callbacks to run for an event with supplied argument', () => {
+  test('#emit should run all callbacks for an event with supplied argument', () => {
     const data = []
 
     function fn(input) {
