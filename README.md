@@ -32,6 +32,18 @@ Microscopic and speedy event emitter in ES2015.
   e.off('event', fn)
   ```
 
+  Context binding for the event handler:
+  ```javascript
+  e.on('event', handler.bind(context))
+  ```
+
+  Run an event handler once:
+  ```javascript
+  e.once('event', handler)
+  e.emit('event') // Ran event handler
+  e.emit('event') // Didn't run anything
+  ```
+
   Emitter can be extended:
   ```javascript
   class Hello extends Emitter {
@@ -46,16 +58,4 @@ Microscopic and speedy event emitter in ES2015.
   }
 
   (new Hello()).emit('event', 'world')
-  ```
-
-  Context binding for the event handler:
-  ```javascript
-  e.on('event', handler.bind(context))
-  ```
-
-  Run an event handler once:
-  ```javascript
-  e.once('event', handler)
-  e.emit('event') // Ran event handler
-  e.emit('event') // Didn't run anything
   ```
