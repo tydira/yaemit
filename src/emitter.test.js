@@ -66,7 +66,6 @@ describe('Emitter', function() {
 
   test('#emit should return early if the event does not exist', () => {
     this.emitter.emit('event', 'ran')
-
-    expect(true).toBe(true)
+    expect(this.emitter._events['event']).toBe(undefined)
   })
 })
