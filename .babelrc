@@ -1,5 +1,9 @@
 {
-  "retainLines": true,
+  "env": {
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  },
   "presets": [
     ["env", {
       "targets": {

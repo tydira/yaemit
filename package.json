@@ -13,7 +13,10 @@
   "author": "Justin Krueger <justin@kroo.gs>",
   "license": "MIT",
   "main": "dist/yaemit.js",
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/kroogs/yaemit.git"
@@ -24,25 +27,36 @@
   "scripts": {
     "start": "webpack",
     "build": "webpack -p",
-    "test": "jest",
-    "prepublish": "npm run lint && npm test && npm run build",
-    "lint": "prettier --no-color --trailing-comma all --no-semi --single-quote --write \"src/**/*.js\" && eslint --fix src"
+    "test": "jest --coverage",
+    "coverage": "npm test | coveralls",
+    "lint": "prettier --no-color --trailing-comma all --no-semi --single-quote --write \"src/**/*.js\" && eslint --fix src",
+    "prepublishOnly": "npm run lint && npm test && npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.5.1",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^3.19.0",
-    "eslint-plugin-import": "^2.3.0",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.2.0",
+    "eslint-plugin-import": "^2.7.0",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
-    "prettier": "^1.4.2",
-    "webpack": "^2.6.1"
+    "nyc": "^11.0.3",
+    "prettier": "^1.5.2",
+    "webpack": "^3.2.0"
   },
   "jest": {
-    "moduleDirectories": ["node_modules", "src"]
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   }
 }

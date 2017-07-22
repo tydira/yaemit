@@ -13,9 +13,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.js'],
-    modules: [
-      path.resolve('src'),
-    ],
+    modules: [path.resolve('src')],
   },
 
   module: {
@@ -24,7 +22,7 @@ module.exports = {
         use: ['babel-loader'],
         test: /\.js$/,
         exclude: [path.resolve('node_modules')],
-      }
+      },
     ],
   },
 }
