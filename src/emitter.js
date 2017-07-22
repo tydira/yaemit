@@ -12,7 +12,8 @@ export default class Emitter {
   }
 
   off(name, fn) {
-    fn ? this._event(name).delete(fn) : this._event(name).clear()
+    if (fn) this._event(name).delete(fn)
+    else this._event(name).clear()
   }
 
   once(name, fn) {
@@ -25,8 +26,6 @@ export default class Emitter {
 
   emit(name, input) {
     if (!this._events[name]) return
-    this._event(name).forEach(function(fn) {
-      fn(input)
-    })
+    this._event(name).forEach(fn => fn(input))
   }
 }
