@@ -11,6 +11,7 @@ coverage
 !.git*
 !.babelrc
 !.eslintrc
+!.esdoc.json
 !.flowconfig
 !.tern-project
 !.travis.yml
