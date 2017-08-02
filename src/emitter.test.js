@@ -1,11 +1,12 @@
-import Emitter from './emitter'
+import Emitter from '../src/emitter'
+import { EmitterError } from '../src/error'
 
 describe('Emitter', function() {
   beforeEach(() => {
     this.emitter = new Emitter()
   })
 
-  test('#on should register a callback for an event', () => {
+  it('#on should register a callback for an event', () => {
     function fn() {}
 
     this.emitter.on('event', fn)
@@ -13,7 +14,17 @@ describe('Emitter', function() {
     expect(this.emitter._events.event.size).toBe(1)
   })
 
-  test('#off should unregister a callback for an event', () => {
+  it('#on should throw an EmitterError if called without a function', () => {
+    expect(() => this.emitter.on('event')).toThrowError(
+      new EmitterError('requires function'),
+    )
+
+    expect(() => this.emitter.on('event', 100)).toThrowError(
+      new EmitterError('requires function'),
+    )
+  })
+
+  it('#off should unregister a callback for an event', () => {
     function fn() {}
 
     this.emitter.on('event', fn)
@@ -22,7 +33,7 @@ describe('Emitter', function() {
     expect(this.emitter._events.event.size).toBe(0)
   })
 
-  test('#off should unregister all callbacks for an event', () => {
+  it('#off should unregister all callbacks for an event', () => {
     function fn() {}
     function fn2() {}
 
@@ -33,7 +44,7 @@ describe('Emitter', function() {
     expect(this.emitter._events.event.size).toBe(0)
   })
 
-  test('#once should register a callback once for an event', () => {
+  it('#once should register a callback once for an event', () => {
     const bucket = []
     function fn() {
       bucket.push('ran')
@@ -47,7 +58,7 @@ describe('Emitter', function() {
     expect(bucket).toEqual(['ran'])
   })
 
-  test('#emit should run all callbacks for an event with the supplied argument', () => {
+  it('#emit should run all callbacks for an event with the supplied argument', () => {
     const data = []
 
     function fn(input) {
@@ -62,10 +73,5 @@ describe('Emitter', function() {
     this.emitter.emit('event', 'ran')
 
     expect(data).toEqual(['ran', 'ran'])
-  })
-
-  test('#emit should return early if the event does not exist', () => {
-    this.emitter.emit('event', 'ran')
-    expect(this.emitter._events['event']).toBe(undefined)
   })
 })
