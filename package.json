@@ -12,7 +12,6 @@
   "homepage": "https://github.com/kroogs/yaemit",
   "author": "Justin Krueger <justin@kroo.gs>",
   "contributors": [],
-  "private": "true",
   "license": "MIT",
   "main": "dist/yaemit.js",
   "files": [
