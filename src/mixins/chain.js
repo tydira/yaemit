@@ -2,7 +2,7 @@ import Emitter from '../emitter'
 
 type callback = (input?: mixed) => void
 
-export default function chain(superclass) {
+export default function chain(superclass: Emitter): Emitter {
   return class extends superclass {
     on(name: string, fn: callback): Emitter {
       super.on(name, fn)

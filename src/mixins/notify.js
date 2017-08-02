@@ -1,6 +1,8 @@
+import Emitter from '../emitter'
+
 type callback = (input?: mixed) => void
 
-export default function notify(superclass) {
+export default function notify(superclass: Emitter): Emitter {
   return class extends superclass {
     on(name: string, fn: callback) {
       super.on(name, fn)
