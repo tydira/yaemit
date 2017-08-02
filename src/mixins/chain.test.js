@@ -30,17 +30,6 @@ describe('chain', function() {
       expect(called).toBe(false)
     })
 
-    it('#once should call super#once and return this', () => {
-      const bucket = []
-
-      this.emitter
-        .once('event', () => bucket.push(true))
-        .emit('event')
-        .emit('event')
-
-      expect(bucket.length).toBe(1)
-    })
-
     it('#emit should call super#emit and return this', () => {
       let called = false
 

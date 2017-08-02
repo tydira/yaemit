@@ -14,11 +14,6 @@ export default function chain(superclass: Emitter): Emitter {
       return this
     }
 
-    once(name: string, fn: callback): Emitter {
-      super.once(name, fn)
-      return this
-    }
-
     emit(name: string, input?: mixed): Emitter {
       super.emit(name, input)
       return this
