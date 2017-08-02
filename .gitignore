@@ -1,17 +1,17 @@
 *.log
-package-lock.json
-yarn.lock
+coverage
 dist
 doc
-node_modules
 flow-typed
-coverage
+node_modules
+package-lock.json
+yarn.lock
 
 .*
-!.git*
 !.babelrc
 !.eslintrc
 !.esdoc.json
 !.flowconfig
+!.git*
 !.tern-project
 !.travis.yml
