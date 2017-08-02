@@ -16,7 +16,7 @@
   "main": "dist/yaemit.js",
   "files": [
     "dist",
-    "doc",
+    "docs",
     "src"
   ],
   "repository": {
@@ -29,6 +29,7 @@
   "scripts": {
     "start": "webpack",
     "build": "webpack -p",
+    "docs": "esdoc",
     "test": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "prettier --no-color --trailing-comma all --no-semi --single-quote --write \"src/**/*.js\" && eslint --fix src",
