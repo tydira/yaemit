@@ -1,6 +1,6 @@
 import { EmitterError } from './error'
 
-type callback = (input?: mixed) => void
+export type callback = (input?: mixed) => void
 
 /**
  * Microscopic and speedy event emitter.
@@ -17,7 +17,6 @@ export default class Emitter {
    * Return a an existing or new Set.
    * @param {string} name - name of event
    * @return {Set} existing or new Set
-   * @protected
    */
   _event(name: string): Set {
     return (this._events[name] = this._events[name] || new Set())
@@ -43,19 +42,6 @@ export default class Emitter {
     if (!this._events[name]) return
     if (fn) this._event(name).delete(fn)
     else this._event(name).clear()
-  }
-
-  /**
-   * Associate a callback that will run once with an event name.
-   * @param {string} name - name of event
-   * @param {function(input: *)} fn - callback
-   */
-  once(name: string, fn: callback): void {
-    const self = this
-    this.on(name, function(input) {
-      self.off(name, this)
-      fn(input)
-    })
   }
 
   /**

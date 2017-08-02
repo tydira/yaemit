@@ -2,7 +2,7 @@ import Emitter from '../emitter'
 
 type callback = (input?: mixed) => void
 
-export default function notify(superclass) {
+export default function chain(superclass: Emitter): Emitter {
   return class extends superclass {
     on(name: string, fn: callback): Emitter {
       super.on(name, fn)
@@ -11,11 +11,6 @@ export default function notify(superclass) {
 
     off(name: string, fn?: callback): Emitter {
       super.off(name, fn)
-      return this
-    }
-
-    once(name: string, fn: callback): Emitter {
-      super.once(name, fn)
       return this
     }
 
