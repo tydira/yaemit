@@ -11,10 +11,13 @@
   ],
   "homepage": "https://github.com/kroogs/yaemit",
   "author": "Justin Krueger <justin@kroo.gs>",
+  "contributors": [],
+  "private": "true",
   "license": "MIT",
   "main": "dist/yaemit.js",
   "files": [
     "dist",
+    "doc",
     "src"
   ],
   "repository": {
@@ -29,25 +32,32 @@
     "build": "webpack -p",
     "test": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "lint": "prettier --no-color --trailing-comma all --no-semi --single-quote --write \"src/**/*.js\" && eslint --fix src",
+    "lint": "flow && prettier --no-color --trailing-comma all --no-semi --single-quote --write \"src/**/*.js\" && eslint --fix src",
     "prepublishOnly": "npm run lint && npm test && npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
+    "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "coveralls": "^2.13.1",
-    "eslint": "^4.2.0",
+    "esdoc": "^1.0.1",
+    "esdoc-flow-plugin": "^1.0.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "eslint": "^4.3.0",
+    "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.7.0",
+    "file-loader": "^0.11.2",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.51.0",
+    "flow-typed": "^2.1.5",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
-    "nyc": "^11.0.3",
-    "prettier": "^1.5.2",
-    "webpack": "^3.2.0"
+    "prettier": "^1.5.3",
+    "webpack": "^3.4.1"
   },
   "jest": {
     "moduleDirectories": [

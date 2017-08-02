@@ -2,7 +2,9 @@
 package-lock.json
 yarn.lock
 dist
+doc
 node_modules
+flow-typed
 coverage
 
 .*
