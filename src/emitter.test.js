@@ -44,6 +44,12 @@ describe('Emitter', function() {
     expect(this.emitter._events.event.size).toBe(0)
   })
 
+  it('#off should return quickly if an event is undefined', () => {
+    this.emitter.off('event')
+
+    expect(this.emitter._events.event).toBe(undefined)
+  })
+
   it('#once should register a callback once for an event', () => {
     const bucket = []
     function fn() {
@@ -73,5 +79,11 @@ describe('Emitter', function() {
     this.emitter.emit('event', 'ran')
 
     expect(data).toEqual(['ran', 'ran'])
+  })
+
+  it('#emit should return quickly if an event is undefined', () => {
+    this.emitter.emit('event')
+
+    expect(this.emitter._events.event).toBe(undefined)
   })
 })
