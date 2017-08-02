@@ -1,11 +1,9 @@
 import Emitter from '../emitter'
 import notify from './notify'
 
-class E extends notify(Emitter) {}
-
 describe('notify', function() {
   beforeEach(() => {
-    this.emitter = new E()
+    this.emitter = new (notify(Emitter))()
   })
 
   it('should return a new constructor wrapping the argument', () => {
