@@ -1,6 +1,6 @@
 import { EmitterError } from './error'
 
-type callback = (input: mixed) => void
+type callback = (input?: mixed) => void
 
 /**
  * Microscopic and speedy event emitter.
@@ -30,16 +30,16 @@ export default class Emitter {
    * @throws {EmitterError} throw error when fn isn't a function
    */
   on(name: string, fn: callback): void {
-    if (typeof fn !== 'function') throw new EmitterError('requires function')
+    if (typeof fn !== 'function') throw new EmitterError('requires callback')
     this._event(name).add(fn)
   }
 
   /**
    * Disassociate a callback from an event name.
    * @param {string} name - name of event
-   * @param {function(input: *)} fn - callback
+   * @param {function(input: *)} [fn] - callback
    */
-  off(name: string, fn: callback): void {
+  off(name: string, fn?: callback): void {
     if (!this._events[name]) return
     if (fn) this._event(name).delete(fn)
     else this._event(name).clear()
@@ -61,9 +61,9 @@ export default class Emitter {
   /**
    * Emit an event with the supplied input.
    * @param {string} name - name of event
-   * @param input - input given to the callbacks
+   * @param {*} [input] - input given to the callbacks
    */
-  emit(name: string, input: mixed): void {
+  emit(name: string, input?: mixed): void {
     if (!this._events[name]) return
     this._event(name).forEach(fn => fn(input))
   }

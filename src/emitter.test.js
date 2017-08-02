@@ -1,5 +1,5 @@
-import Emitter from '../src/emitter'
-import { EmitterError } from '../src/error'
+import Emitter from './emitter'
+import { EmitterError } from './error'
 
 describe('Emitter', function() {
   beforeEach(() => {
@@ -16,11 +16,11 @@ describe('Emitter', function() {
 
   it('#on should throw an EmitterError if called without a function', () => {
     expect(() => this.emitter.on('event')).toThrowError(
-      new EmitterError('requires function'),
+      new EmitterError('requires callback'),
     )
 
     expect(() => this.emitter.on('event', 100)).toThrowError(
-      new EmitterError('requires function'),
+      new EmitterError('requires callback'),
     )
   })
 

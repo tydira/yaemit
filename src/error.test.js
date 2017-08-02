@@ -1,7 +1,7 @@
 import { EmitterError } from '../src/error'
 
 describe('Emitter', function() {
-  it('#constructor should call super() and set this.name', () => {
+  it('#constructor should call super(message) and set this.name', () => {
     const err = new EmitterError('honk')
     expect(err.message).toBe('honk')
   })
