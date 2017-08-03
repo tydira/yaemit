@@ -80,7 +80,7 @@
   ```javascript
   import { notify } from 'yaemit/mixins'
 
-  const n = new (chain(Emitter))()
+  const n = new (notify(Emitter))()
 
   n.on('off', (input) => console.log('off', input))
   n.off('off')
