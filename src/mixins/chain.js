@@ -1,6 +1,4 @@
-import Emitter from '../emitter'
-
-type callback = (input?: mixed) => void
+import Emitter, { callback } from '../emitter'
 
 export default function chain(superclass: Emitter): Emitter {
   return class extends superclass {
