@@ -17,7 +17,6 @@
   "main": "dist/yaemit.js",
   "files": [
     "dist",
-    "docs",
     "src"
   ],
   "repository": {
