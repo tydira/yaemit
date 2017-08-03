@@ -1,24 +1,22 @@
-import { EmitterError } from './error'
-
-export type callback = (input?: mixed) => void
+export type Callback = (input?: mixed) => void
+export type CallbackSet = Set<Callback>
+export type EventMap = { string: CallbackSet }
 
 /**
  * Microscopic and speedy event emitter.
  */
 export default class Emitter {
   /**
-   * Prepare a new instance.
+   * Map of strings to Sets for storing callbacks.
    */
-  constructor() {
-    this._events = {}
-  }
+  _events: EventMap = {}
 
   /**
    * Return a an existing or new Set.
    * @param {string} name - name of event
    * @return {Set} existing or new Set
    */
-  _event(name: string): Set {
+  _event(name: string): CallbackSet {
     return (this._events[name] = this._events[name] || new Set())
   }
 
@@ -28,8 +26,8 @@ export default class Emitter {
    * @param {function(input: *)} fn - callback
    * @throws {EmitterError} throw error when fn isn't a function
    */
-  on(name: string, fn: callback): void {
-    if (typeof fn !== 'function') throw new EmitterError('requires callback')
+  on(name: string, fn: Callback): void {
+    if (typeof fn !== 'function') throw new TypeError('requires callback')
     this._event(name).add(fn)
   }
 
@@ -38,7 +36,7 @@ export default class Emitter {
    * @param {string} name - name of event
    * @param {function(input: *)} [fn] - callback
    */
-  off(name: string, fn?: callback): void {
+  off(name: string, fn?: Callback): void {
     if (!this._events[name]) return
     if (fn) this._event(name).delete(fn)
     else this._event(name).clear()

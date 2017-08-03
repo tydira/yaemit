@@ -1,5 +1,4 @@
 import Emitter from './emitter'
-import { EmitterError } from './error'
 
 describe('Emitter', function() {
   beforeEach(() => {
@@ -15,13 +14,10 @@ describe('Emitter', function() {
   })
 
   it('#on should throw an EmitterError if called without a function', () => {
-    expect(() => this.emitter.on('event')).toThrowError(
-      new EmitterError('requires callback'),
-    )
-
-    expect(() => this.emitter.on('event', 100)).toThrowError(
-      new EmitterError('requires callback'),
-    )
+    expect(() => this.emitter.on('event')).toThrowError(TypeError)
+    expect(() => {
+      this.emitter.on('event', 100)
+    }).toThrowError('requires callback')
   })
 
   it('#off should unregister a callback for an event', () => {
