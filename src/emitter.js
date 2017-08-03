@@ -7,7 +7,7 @@ export type EventMap = { string: CallbackSet }
  */
 export default class Emitter {
   /**
-   * Map of strings to Sets for storing callbacks.
+   * Storage for event callbacks.
    */
   _events: EventMap = {}
 
