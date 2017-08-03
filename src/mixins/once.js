@@ -1,4 +1,4 @@
-import Emitter, { callback } from '../emitter'
+import Emitter, { Callback } from '../emitter'
 
 export default function once(superclass: Emitter): Emitter {
   return class extends superclass {
@@ -7,7 +7,7 @@ export default function once(superclass: Emitter): Emitter {
      * @param {string} name - name of event
      * @param {function(input: *)} fn - callback
      */
-    once(name: string, fn: callback): void {
+    once(name: string, fn: Callback): void {
       const self = this
       return this.on(name, function(input) {
         self.off(name, this)
