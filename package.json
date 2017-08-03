@@ -1,6 +1,6 @@
 {
   "name": "yaemit",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Microscopic and speedy event emitter for ES2015.",
   "keywords": [
     "events",

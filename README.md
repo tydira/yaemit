@@ -19,7 +19,7 @@
 
   Direct usage of Emitter:
   ```javascript
-  import Emitter from 'yaemit'
+  import { Emitter } from 'yaemit'
 
   const e = new Emitter()
   function fn(input) { console.log('hello', input) }
@@ -58,7 +58,7 @@
 
   Run an event handler once:
   ```javascript
-  import mixins from 'yaemit'
+  import { mixins } from 'yaemit'
 
   const OEmitter = mixins.once(Emitter)
   const o = new OEmitter()
