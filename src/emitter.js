@@ -26,7 +26,7 @@ export default class Emitter {
    * @param {function(input: *)} fn - callback
    * @throws {EmitterError} throw error when fn isn't a function
    */
-  on(name: string, fn: Callback): void {
+  on(name: string, fn: Callback) {
     if (typeof fn !== 'function') throw new TypeError('requires callback')
     this._event(name).add(fn)
   }
@@ -36,7 +36,7 @@ export default class Emitter {
    * @param {string} name - name of event
    * @param {function(input: *)} [fn] - callback
    */
-  off(name: string, fn?: Callback): void {
+  off(name: string, fn?: Callback) {
     if (!this._events[name]) return
     if (fn) this._event(name).delete(fn)
     else this._event(name).clear()
@@ -47,8 +47,8 @@ export default class Emitter {
    * @param {string} name - name of event
    * @param {*} [input] - input given to the callbacks
    */
-  emit(name: string, input?: mixed): void {
+  emit(name: string, input?: mixed) {
     if (!this._events[name]) return
-    this._event(name).forEach(fn => fn(input))
+    this._event(name).forEach((fn: Callback) => fn(input))
   }
 }
