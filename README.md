@@ -12,7 +12,7 @@
 ## Installation
 
   ```shell
-  npm install yaemit
+  npm --save install yaemit
   ```
 
 ## Usage
@@ -38,13 +38,6 @@
   e.on('event', handler.bind(context))
   ```
 
-  Run an event handler once:
-  ```javascript
-  e.once('event', handler)
-  e.emit('event') // Ran event handler
-  e.emit('event') // Didn't run anything
-  ```
-
   Emitter can be extended:
   ```javascript
   class Hello extends Emitter {
@@ -59,4 +52,36 @@
   }
 
   (new Hello()).emit('event', 'world')
+  ```
+
+## Mixins
+
+  Run an event handler once:
+  ```javascript
+  import { once } from 'yaemit/mixins'
+
+  const o = new (once(Emitter))()
+
+  o.once('event', handler)
+  o.emit('event') // Ran event handler
+  o.emit('event') // Didn't run anything
+  ```
+
+  Enable chaining by always returning this:
+  ```javascript
+  import { chain } from 'yaemit/mixins'
+
+  const c = new (chain(Emitter))()
+
+  c.emit('one').emit('two').emit('three')
+  ```
+
+  Get events when .on and .off are used:
+  ```javascript
+  import { notify } from 'yaemit/mixins'
+
+  const n = new (chain(Emitter))()
+
+  n.on('off', (input) => console.log('off', input))
+  n.off('off')
   ```
