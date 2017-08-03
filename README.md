@@ -25,7 +25,7 @@
   function fn(input) { console.log('hello', input) }
 
   e.on('event', fn)
-  e.emit('event', 'world') // Outputs 'hello world'
+  e.emit('event', 'world')
   ```
 
   Turn off an event handler
@@ -58,30 +58,29 @@
 
   Run an event handler once:
   ```javascript
-  import { once } from 'yaemit/mixins'
+  import mixins from 'yaemit'
 
-  const o = new (once(Emitter))()
+  const OEmitter = mixins.once(Emitter)
+  const o = new OEmitter()
 
   o.once('event', handler)
   o.emit('event') // Ran event handler
   o.emit('event') // Didn't run anything
   ```
 
-  Enable chaining by always returning this:
+  Enable chaining:
   ```javascript
-  import { chain } from 'yaemit/mixins'
-
-  const c = new (chain(Emitter))()
+  const CEmitter = mixins.chain(Emitter)
+  const c = new CEmitter()
 
   c.emit('one').emit('two').emit('three')
   ```
 
   Get events when .on and .off are used:
   ```javascript
-  import { notify } from 'yaemit/mixins'
+  const NEmitter = mixins.notify(Emitter)
+  const n = new NEmitter()
 
-  const n = new (notify(Emitter))()
-
-  n.on('off', (input) => console.log('off', input))
-  n.off('off')
+  n.on('off', () => console.log('off'))
+  n.off('off') // Runs console.log('off')
   ```
