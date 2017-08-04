@@ -4,8 +4,8 @@ import chain from './mixins/chain'
 import notify from './mixins/notify'
 import once from './mixins/once'
 
-describe('Index', function() {
-  it('should export all the appropriate members', () => {
+describe('yaemit', function() {
+  it('exports all appropriate members', () => {
     expect(Emitter).toBe(index.Emitter)
     expect(chain).toBe(index.mixins.chain)
     expect(notify).toBe(index.mixins.notify)
