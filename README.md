@@ -22,7 +22,7 @@
   import { Emitter } from 'yaemit'
 
   const e = new Emitter()
-  function fn(input) { console.log('hello', input) }
+  const fn = (input) => console.log('hello', input)
 
   e.on('event', fn)
   e.emit('event', 'world')
@@ -42,7 +42,6 @@
   ```javascript
   class Hello extends Emitter {
     constructor() {
-      super()
       this.on('event', this.hello)
     }
 
@@ -76,7 +75,7 @@
   c.emit('one').emit('two').emit('three')
   ```
 
-  Get events when .on and .off are used:
+  Emit events when .on and .off are used:
   ```javascript
   const NEmitter = mixins.notify(Emitter)
   const n = new NEmitter()
