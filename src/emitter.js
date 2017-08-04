@@ -9,7 +9,7 @@ export default class Emitter {
   /**
    * Storage for event callbacks.
    */
-  _events: EventMap = {}
+  _eventMap: EventMap = {}
 
   /**
    * Return a an existing or new Set.
@@ -17,7 +17,7 @@ export default class Emitter {
    * @return {Set} existing or new Set
    */
   _event(name: string): CallbackSet {
-    return (this._events[name] = this._events[name] || new Set())
+    return (this._eventMap[name] = this._eventMap[name] || new Set())
   }
 
   /**
@@ -32,12 +32,12 @@ export default class Emitter {
   }
 
   /**
-   * Disassociate a callback from an event name.
+   * Disassociate a callback (or all callbacks) from an event name.
    * @param {string} name - name of event
    * @param {function(input: *)} [fn] - callback
    */
   off(name: string, fn?: Callback) {
-    if (!this._events[name]) return
+    if (!this._eventMap[name]) return
     if (fn) this._event(name).delete(fn)
     else this._event(name).clear()
   }
@@ -48,7 +48,7 @@ export default class Emitter {
    * @param {*} [input] - input given to the callbacks
    */
   emit(name: string, input?: mixed) {
-    if (!this._events[name]) return
+    if (!this._eventMap[name]) return
     this._event(name).forEach((fn: Callback) => fn(input))
   }
 }
