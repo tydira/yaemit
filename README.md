@@ -84,3 +84,14 @@
   n.on('off', () => console.log('off'))
   n.off('off') // Runs console.log('off')
   ```
+
+  Combine mixins:
+  ```javascript
+  const SEmitter = mixins.once(mixins.chain(Emitter))
+  const spiffy = new SEmitter()
+
+  spiffy
+    .emit('spaghetti') // Didn't run anything
+    .once('spaghetti', handler)
+    .emit('spaghetti') // Ran event handler
+  ```
