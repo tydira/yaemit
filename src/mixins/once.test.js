@@ -1,19 +1,26 @@
 import Emitter from '../emitter'
 import once from './once'
 
-describe('Emitter', function() {
-  it('#once should register a callback once for an event', () => {
-    const emitter = new (once(Emitter))()
+describe('mixins#once', function() {
+  beforeEach(() => {
+    this.emitter = new (once(Emitter))()
+  })
+
+  it('returns an subclass of the argument', () => {
+    expect(this.emitter).toBeInstanceOf(Emitter)
+  })
+
+  it('#once registers a callback once for an event', () => {
     const bucket = []
     function fn() {
       bucket.push('ran')
     }
 
-    emitter.once('event', fn)
-    emitter.emit('event')
-    emitter.emit('event')
+    this.emitter.once('event', fn)
+    this.emitter.emit('event')
+    this.emitter.emit('event')
 
-    expect(emitter._events.event.size).toBe(0)
+    expect(this.emitter._eventMap.event.size).toBe(0)
     expect(bucket).toEqual(['ran'])
   })
 })
