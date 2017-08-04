@@ -94,4 +94,5 @@
     .emit('spaghetti') // Didn't run anything
     .once('spaghetti', handler)
     .emit('spaghetti') // Ran event handler
+    .emit('spaghetti') // Didn't run anything
   ```
