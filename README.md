@@ -19,7 +19,7 @@
 
   Direct usage of Emitter:
   ```javascript
-  import { Emitter } from 'yaemit'
+  import Emitter from 'yaemit'
 
   const e = new Emitter()
   const fn = (input) => console.log('hello', input)
@@ -53,45 +53,7 @@
   (new Hello()).emit('event', 'world')
   ```
 
-## Mixins
+  ## Extras
 
-  Run an event handler once:
-  ```javascript
-  import { mixins } from 'yaemit'
-
-  const OEmitter = mixins.once(Emitter)
-  const o = new OEmitter()
-
-  o.once('event', handler)
-  o.emit('event') // Ran event handler
-  o.emit('event') // Didn't run anything
-  ```
-
-  Enable chaining:
-  ```javascript
-  const CEmitter = mixins.chain(Emitter)
-  const c = new CEmitter()
-
-  c.emit('one').emit('two').emit('three')
-  ```
-
-  Emit events when .on and .off are used:
-  ```javascript
-  const NEmitter = mixins.notify(Emitter)
-  const n = new NEmitter()
-
-  n.on('off', () => console.log('off'))
-  n.off('off') // Runs console.log('off')
-  ```
-
-  Combine mixins:
-  ```javascript
-  const SEmitter = mixins.once(mixins.chain(Emitter))
-  const spiffy = new SEmitter()
-
-  spiffy
-    .emit('spaghetti') // Didn't run anything
-    .once('spaghetti', handler)
-    .emit('spaghetti') // Ran event handler
-    .emit('spaghetti') // Didn't run anything
-  ```
+    Be sure to check out [yaemit-extras](../yaemit-extras) if
+    you want features that were too niche to include here.
