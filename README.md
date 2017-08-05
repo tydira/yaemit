@@ -55,5 +55,5 @@
 
   ## Extras
 
-  Be sure to check out [yaemit-extras](://github.com/kroogs/yaemit-extras) if
-  you want features that were too niche to include here.
+  Be sure to check out [yaemit-extras](https://github.com/kroogs/yaemit-extras)
+  if you want features that were too niche to include here.
