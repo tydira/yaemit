@@ -55,5 +55,5 @@
 
   ## Extras
 
-    Be sure to check out [yaemit-extras](../yaemit-extras) if
-    you want features that were too niche to include here.
+  Be sure to check out [yaemit-extras](../yaemit-extras) if
+  you want features that were too niche to include here.
