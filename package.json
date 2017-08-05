@@ -1,6 +1,6 @@
 {
   "name": "yaemit",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Microscopic and speedy event emitter.",
   "keywords": [
     "events",
@@ -14,7 +14,7 @@
   "author": "Justin Krueger <justin@kroo.gs>",
   "contributors": [],
   "license": "MIT",
-  "main": "dist/yaemit.js",
+  "main": "dist/yaemit.min.js",
   "files": [
     "dist",
     "src"
