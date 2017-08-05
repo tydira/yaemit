@@ -1,7 +1,7 @@
 {
   "name": "yaemit",
-  "version": "1.6.4",
-  "description": "Microscopic and speedy event emitter for ES2015.",
+  "version": "1.7.0",
+  "description": "Microscopic and speedy event emitter.",
   "keywords": [
     "events",
     "event",
@@ -27,10 +27,10 @@
     "url": "https://github.com/kroogs/yaemit/issues"
   },
   "scripts": {
-    "start": "webpack",
     "build": "webpack -p",
     "docs": "esdoc",
     "test": "jest --coverage",
+    "test-dev": "jest --watch",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "prettier --no-color --trailing-comma all --no-semi --single-quote --write \"src/**/*.js\" && eslint --fix src",
     "prepublishOnly": "npm run lint && npm test && npm run build"
@@ -51,7 +51,6 @@
     "eslint": "^4.3.0",
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.7.0",
-    "file-loader": "^0.11.2",
     "flow": "^0.2.3",
     "flow-bin": "^0.52.0",
     "jest": "^20.0.4",
