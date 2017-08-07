@@ -1,20 +1,20 @@
-const path = require('path')
+const { resolve } = require('path')
 
 module.exports = {
-  context: __dirname,
   entry: './src/emitter.js',
+  context: __dirname,
   devtool: 'source-map',
 
   output: {
     library: 'yaemit',
     libraryTarget: 'umd',
-    path: path.resolve('dist'),
+    path: resolve('dist'),
     filename: 'yaemit.min.js',
   },
 
   resolve: {
     extensions: ['.js'],
-    modules: [path.resolve('src')],
+    modules: [resolve('src')],
   },
 
   module: {
@@ -22,7 +22,7 @@ module.exports = {
       {
         use: ['babel-loader'],
         test: /\.js$/,
-        exclude: [path.resolve('node_modules')],
+        exclude: [resolve('node_modules')],
       },
     ],
   },
