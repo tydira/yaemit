@@ -1,6 +1,7 @@
+// @flow
 export type Callback = (input?: mixed) => void
 export type CallbackSet = Set<Callback>
-export type EventMap = { string: CallbackSet }
+export type EventMap = { [string]: CallbackSet }
 
 /**
  * Microscopic and speedy event emitter.
