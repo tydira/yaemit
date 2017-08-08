@@ -4,7 +4,7 @@ export type CallbackSet = Array<Callback>
 export type EventMap = { [string]: CallbackSet }
 
 /**
- * Microscopic and speedy event emitter.
+ * Microscopic event emitter.
  */
 export default class Emitter {
   /**
