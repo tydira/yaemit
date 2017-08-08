@@ -1,7 +1,7 @@
 {
   "name": "yaemit",
   "version": "1.7.1",
-  "description": "Microscopic and speedy event emitter.",
+  "description": "Microscopic event emitter.",
   "keywords": [
     "events",
     "event",
