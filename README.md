@@ -7,7 +7,7 @@
 [![npm version](https://img.shields.io/npm/v/yaemit.svg)](https://www.npmjs.com/package/yaemit)
 [![MIT license](https://img.shields.io/npm/l/yaemit.svg)](https://spdx.org/licenses/MIT)
 
-> Microscopic and speedy event emitter.
+> Microscopic event emitter.
 
 ## Installation
 
@@ -53,7 +53,8 @@
   (new Hello()).emit('event', 'world')
   ```
 
-  ## Extras
+  ## That's it.
 
-  Be sure to check out [yaemit-extras](https://github.com/kroogs/yaemit-extras)
-  if you want features that were too niche to include here.
+  Need more? Be sure to check out [yaemit-fancy](https://github.com/kroogs/yaemit-fancy)
+  if you want features that were too niche to include here
+  or if you just want to see how to extend yaemit yourself.
