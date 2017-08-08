@@ -9,34 +9,7 @@ describe('Emitter', function() {
     it('registers a callback for an event', () => {
       function fn() {}
       this.emitter.on('event', fn)
-      expect(this.emitter._eventMap.event.values().next().value).toBe(fn)
-    })
-  })
-
-  describe('#off', () => {
-    it('unregisters a callback for an event', () => {
-      function fn() {}
-
-      this.emitter.on('event', fn)
-      this.emitter.off('event', fn)
-
-      expect(this.emitter._eventMap.event.size).toBe(0)
-    })
-
-    it('unregisters all callbacks for an event', () => {
-      function fn() {}
-      function fn2() {}
-
-      this.emitter.on('event', fn)
-      this.emitter.on('event', fn2)
-      this.emitter.off('event')
-
-      expect(this.emitter._eventMap.event.size).toBe(0)
-    })
-
-    it('returns quickly if unable to find event', () => {
-      this.emitter.off('event')
-      expect(this.emitter._eventMap.event).toBe(undefined)
+      expect(this.emitter._eventMap.event[0]).toBe(fn)
     })
   })
 

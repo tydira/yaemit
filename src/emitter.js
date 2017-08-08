@@ -1,6 +1,6 @@
 // @flow
 export type Callback = (input?: mixed) => void
-export type CallbackSet = Set<Callback>
+export type CallbackSet = Array<Callback>
 export type EventMap = { [string]: CallbackSet }
 
 /**
@@ -18,7 +18,7 @@ export default class Emitter {
    * @return {Set} existing or new Set
    */
   _event(name: string): CallbackSet {
-    return (this._eventMap[name] = this._eventMap[name] || new Set())
+    return (this._eventMap[name] = this._eventMap[name] || [])
   }
 
   /**
@@ -28,18 +28,7 @@ export default class Emitter {
    * @throws {EmitterError} throw error when fn isn't a function
    */
   on(name: string, fn: Callback) {
-    this._event(name).add(fn)
-  }
-
-  /**
-   * Disassociate a callback (or all callbacks) from an event name.
-   * @param {string} name - name of event
-   * @param {function(input: *)} [fn] - callback
-   */
-  off(name: string, fn?: Callback) {
-    if (!this._eventMap[name]) return
-    if (fn) this._event(name).delete(fn)
-    else this._event(name).clear()
+    this._event(name).push(fn)
   }
 
   /**
@@ -49,8 +38,6 @@ export default class Emitter {
    */
   emit(name: string, input?: mixed) {
     if (!this._eventMap[name]) return
-    this._event(name).forEach((fn: Callback) => {
-      typeof fn === 'function' && fn(input)
-    })
+    this._event(name).forEach((fn: Callback) => fn(input))
   }
 }
