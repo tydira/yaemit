@@ -28,7 +28,6 @@ export default class Emitter {
    * @throws {EmitterError} throw error when fn isn't a function
    */
   on(name: string, fn: Callback) {
-    if (typeof fn !== 'function') throw new TypeError('requires callback')
     this._event(name).add(fn)
   }
 
@@ -50,6 +49,8 @@ export default class Emitter {
    */
   emit(name: string, input?: mixed) {
     if (!this._eventMap[name]) return
-    this._event(name).forEach((fn: Callback) => fn(input))
+    this._event(name).forEach((fn: Callback) => {
+      typeof fn === 'function' && fn(input)
+    })
   }
 }

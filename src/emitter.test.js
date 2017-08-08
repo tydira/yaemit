@@ -11,13 +11,6 @@ describe('Emitter', function() {
       this.emitter.on('event', fn)
       expect(this.emitter._eventMap.event.values().next().value).toBe(fn)
     })
-
-    it('throws an TypeError if called without a function', () => {
-      expect(() => this.emitter.on('event')).toThrowError(TypeError)
-      expect(() => {
-        this.emitter.on('event', 100)
-      }).toThrowError('requires callback')
-    })
   })
 
   describe('#off', () => {
