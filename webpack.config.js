@@ -6,10 +6,10 @@ module.exports = {
   devtool: 'source-map',
 
   output: {
-    library: 'es2017-starter',
+    library: 'proto-es2017',
     libraryTarget: 'umd',
     path: path.resolve('dist'),
-    filename: 'es2017-starter.js',
+    filename: 'proto-es2017.js',
   },
 
   resolve: {
