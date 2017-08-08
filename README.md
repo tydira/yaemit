@@ -28,11 +28,6 @@
   e.emit('event', 'world')
   ```
 
-  Turn off an event handler
-  ```javascript
-  e.off('event', fn)
-  ```
-
   Context binding for the event handler:
   ```javascript
   e.on('event', handler.bind(context))
