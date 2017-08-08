@@ -1,4 +1,4 @@
-const path = require('path')
+const { resolve } = require('path')
 
 module.exports = {
   context: __dirname,
@@ -8,13 +8,13 @@ module.exports = {
   output: {
     library: 'proto-es2017',
     libraryTarget: 'umd',
-    path: path.resolve('dist'),
+    path: resolve('dist'),
     filename: 'proto-es2017.js',
   },
 
   resolve: {
     extensions: ['.js'],
-    modules: [path.resolve('node_modules'), path.resolve('src')],
+    modules: [resolve('node_modules'), resolve('src')],
   },
 
   module: {
@@ -22,7 +22,7 @@ module.exports = {
       {
         use: ['babel-loader'],
         test: /\.js$/,
-        exclude: [path.resolve('node_modules')],
+        exclude: [resolve('node_modules')],
       },
       {
         use: 'file-loader',
@@ -38,7 +38,7 @@ module.exports = {
 
   devServer: {
     port: 3030,
-    contentBase: path.resolve('src'),
+    contentBase: resolve('src'),
     stats: 'errors-only',
     overlay: {
       warnings: true,
