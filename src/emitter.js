@@ -13,9 +13,9 @@ export default class Emitter {
   _eventMap: EventMap = {}
 
   /**
-   * Return a an existing or new Set.
-   * @param {string} name - name of event
-   * @return {Set} existing or new Set
+   * Return an existing or new array by event name.
+   * @param {string}
+   * @return {array}
    */
   _event(name: string): CallbackSet {
     return (this._eventMap[name] = this._eventMap[name] || [])
@@ -23,9 +23,8 @@ export default class Emitter {
 
   /**
    * Associate a callback with an event name.
-   * @param {string} name - name of event
-   * @param {function(input: *)} fn - callback
-   * @throws {EmitterError} throw error when fn isn't a function
+   * @param {string}
+   * @param {function(input: *)}
    */
   on(name: string, fn: Callback) {
     this._event(name).push(fn)
@@ -33,8 +32,8 @@ export default class Emitter {
 
   /**
    * Emit an event with the supplied input.
-   * @param {string} name - name of event
-   * @param {*} [input] - input given to the callbacks
+   * @param {string}
+   * @param {*} [input]
    */
   emit(name: string, input?: mixed) {
     if (!this._eventMap[name]) return
