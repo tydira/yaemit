@@ -1,5 +1,7 @@
 # yaemit
 
+> Microscopic event emitter.
+
 [![TravisCI](https://img.shields.io/circleci/project/github/kroogs/yaemit.svg)](https://circleci.com/gh/kroogs/yaemit)
 [![Coverage](https://img.shields.io/coveralls/kroogs/yaemit.svg)](https://coveralls.io/github/kroogs/yaemit)
 [![Dependencies](https://img.shields.io/david/kroogs/yaemit.svg)](https://david-dm.org/kroogs/yaemit)
@@ -7,15 +9,13 @@
 [![npm version](https://img.shields.io/npm/v/yaemit.svg)](https://www.npmjs.com/package/yaemit)
 [![MIT license](https://img.shields.io/npm/l/yaemit.svg)](https://spdx.org/licenses/MIT)
 
-> Microscopic event emitter.
-
-## Installation
+## Install
 
   ```shell
   npm --save install yaemit
   ```
 
-## Usage
+## Example
 
   Direct usage of Emitter:
   ```javascript
