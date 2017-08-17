@@ -8,7 +8,7 @@ module.exports = {
   output: {
     library: 'proto-es2017',
     libraryTarget: 'umd',
-    path: resolve('dist'),
+    path: resolve('lib'),
     filename: 'proto-es2017.js',
   },
 

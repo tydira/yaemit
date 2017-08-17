@@ -43,7 +43,7 @@
   npm run lint
   ```
 
-  Produce minified bundle in `dist`:
+  Produce minified bundle in `lib`:
   ```
   npm run build
   ```
