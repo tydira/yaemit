@@ -14,9 +14,9 @@
   "author": "Justin Krueger <justin@kroo.gs>",
   "contributors": [],
   "license": "MIT",
-  "main": "dist/yaemit.min.js",
+  "main": "lib/yaemit.min.js",
   "files": [
-    "dist",
+    "lib",
     "src"
   ],
   "repository": {

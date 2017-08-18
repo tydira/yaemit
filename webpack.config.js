@@ -8,7 +8,7 @@ module.exports = {
   output: {
     library: 'yaemit',
     libraryTarget: 'umd',
-    path: resolve('dist'),
+    path: resolve('lib'),
     filename: 'yaemit.min.js',
   },
 
