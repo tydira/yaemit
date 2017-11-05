@@ -1,7 +1,7 @@
 // @flow
 export type Callback = (input?: mixed) => void
-export type CallbackSet = Array<Callback>
-export type EventMap = { [string]: CallbackSet }
+export type CallbackList = Callback[]
+export type EventMap = { [string]: CallbackList }
 
 /**
  * Microscopic event emitter.
@@ -17,7 +17,7 @@ export default class Emitter {
    * @param {string}
    * @return {array}
    */
-  _event(name: string): CallbackSet {
+  _event(name: string): CallbackList {
     return (this._eventMap[name] = this._eventMap[name] || [])
   }
 
