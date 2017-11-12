@@ -45,9 +45,3 @@
 
   (new Hello()).emit('event', 'world')
   ```
-
-  ## That's it.
-
-  Need more? Be sure to check out [yaemit-fancy](https://github.com/kroogs/yaemit-fancy)
-  if you want features that were too niche to include here
-  or if you just want to see how to extend yaemit yourself.

@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 
 module.exports = {
-  entry: './src/emitter.js',
+  entry: './src/index.js',
   context: __dirname,
   devtool: 'source-map',
 
@@ -9,7 +9,7 @@ module.exports = {
     library: 'yaemit',
     libraryTarget: 'umd',
     path: resolve('lib'),
-    filename: 'yaemit.min.js',
+    filename: 'yaemit.js',
   },
 
   resolve: {

@@ -1,6 +1,6 @@
 {
   "name": "yaemit",
-  "version": "1.9.0",
+  "version": "2.0.0",
   "description": "Microscopic event emitter.",
   "keywords": [
     "events",
@@ -13,7 +13,7 @@
   "homepage": "https://github.com/kroogs/yaemit",
   "author": "Justin Krueger <justin@kroo.gs>",
   "license": "MIT",
-  "main": "lib/yaemit.min.js",
+  "main": "lib/yaemit.js",
   "files": [
     "lib",
     "src"
@@ -26,7 +26,7 @@
     "url": "https://github.com/kroogs/yaemit/issues"
   },
   "scripts": {
-    "build": "webpack -p",
+    "build": "webpack",
     "docs": "esdoc",
     "test": "jest --coverage",
     "test-dev": "jest --watch",
@@ -39,6 +39,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-flow-comments": "^6.22.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-0": "^6.24.1",

@@ -1,6 +1,6 @@
 *.log
 coverage
-dist
+lib
 doc
 flow-typed
 node_modules
@@ -13,5 +13,4 @@ yarn.lock
 !.esdoc.json
 !.flowconfig
 !.git*
-!.tern-project
 !.travis.yml

@@ -1,42 +1,76 @@
 // @flow
-export type Callback = (input?: mixed) => void
-export type CallbackList = Callback[]
-export type EventMap = { [string]: CallbackList }
+import Base from './base'
+import type { Callback } from './base'
+
+export type SpyContext = { action: Function }
 
 /**
- * Microscopic event emitter.
+ * Fancy event emitter.
  */
-export default class Emitter {
+export default class Emitter extends Base {
   /**
-   * Storage for event callbacks.
+   * Return an array of event names in use.
    */
-  _eventMap: EventMap = {}
-
-  /**
-   * Return an existing or new array by event name.
-   * @param {string}
-   * @return {array}
-   */
-  _event(name: string): CallbackList {
-    return (this._eventMap[name] = this._eventMap[name] || [])
+  eventNames(): string[] {
+    return Object.keys(this._eventMap)
   }
 
   /**
-   * Associate a callback with an event name.
-   * @param {string}
-   * @param {function(input: *)}
+   * Emit an event with context, then call its action.
    */
-  on(name: string, fn: Callback) {
-    this._event(name).push(fn)
+  spy(name: string, context: SpyContext) {
+    super.emit(name, context)
+    context.action()
   }
 
   /**
    * Emit an event with the supplied input.
-   * @param {string}
-   * @param {*} [input]
    */
   emit(name: string, input?: mixed) {
+    this.spy('emit', { name, input, action: () => super.emit(name, input) })
+  }
+
+  /**
+   * Associate a callback with an event name.
+   */
+  on(name: string, fn: Callback) {
+    this.spy('on', { action: () => super.on(name, fn) })
+  }
+
+  /**
+   * Disassociate a callback from an event name.
+   */
+  off(name: string, fn: Callback) {
     if (!this._eventMap[name]) return
-    this._event(name).forEach((fn: Callback) => fn(input))
+    this.spy('off', {
+      action: () => {
+        const event = this._getEvent(name)
+        const index = event.indexOf(fn)
+        if (index !== -1) event.splice(index, 1)
+      },
+    })
+  }
+
+  /**
+   * Disassociate all callbacks from an event name.
+   */
+  clear(name: string) {
+    this.spy('clear', {
+      action: () => {
+        this._eventMap[name] = []
+      },
+    })
+  }
+
+  /**
+   * Associate a single-use callback with an event name.
+   */
+  once(name: string, fn: Callback) {
+    const off = input => {
+      this.off(name, off)
+      fn(input)
+    }
+
+    this.spy('once', { action: () => this.on(name, off) })
   }
 }

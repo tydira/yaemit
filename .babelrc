@@ -5,7 +5,7 @@
         "browsers": ["last 2 versions"]
       }
     }],
-    "stage-0",
-    "flow"
-  ]
+    "stage-0"
+  ],
+  "plugins": ["transform-flow-comments"]
 }
